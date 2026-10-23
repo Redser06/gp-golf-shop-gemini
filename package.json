@@ -1,0 +1,17 @@
+{
+  "name": "gp-golf-shop-gemini",
+  "version": "1.0.0",
+  "description": "Antigravity + Gemini 3.8 Flash merchant storefront and real-time Global Payments MCP console",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "doctor": "node scripts/doctor.js",
+    "test:e2e": "node scripts/test-e2e.js",
+    "tunnel": "bash scripts/tunnel.sh",
+    "tunnel:stop": "bash scripts/tunnel.sh --stop"
+  },
+  "keywords": ["global-payments", "mcp", "gemini-3.8-flash", "antigravity", "storefront"],
+  "author": "Conor Redmond",
+  "license": "MIT"
+}

@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Augusta Collection — Antigravity + Gemini 3.8 Flash</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="app-layout">
+    <!-- ==================== LEFT: LUXURY STOREFRONT ==================== -->
+    <main class="store-pane">
+      <header class="store-nav">
+        <div class="brand">
+          <div class="brand-crest">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
+              <path d="M2 12h20"/>
+            </svg>
+          </div>
+          <div>
+            <span class="brand-title">THE AUGUSTA COLLECTION</span>
+            <span class="brand-sub">Private Clubhouse & Pro Shop · Est. 1934</span>
+          </div>
+        </div>
+
+        <div class="nav-badges">
+          <span class="badge sandbox-badge">GP SANDBOX</span>
+          <button class="bag-pill" id="bagToggleBtn">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/>
+            </svg>
+            <span id="bagCount">0</span> balls · <strong id="bagTotalHeader">$0.00</strong>
+          </button>
+        </div>
+      </header>
+
+      <!-- Active Bag Banner -->
+      <div class="bag-bar" id="bagBar" hidden>
+        <div class="bag-bar-content">
+          <div class="bag-bar-items" id="bagBarItems"></div>
+          <div class="bag-bar-actions">
+            <span class="bag-bar-total" id="bagBarTotal">$0.00</span>
+            <button class="btn-checkout" id="bagBarCheckoutBtn">Instant Checkout →</button>
+            <button class="btn-clear" id="bagBarClearBtn">Clear</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="store-content">
+        <!-- Hero Section -->
+        <section class="hero-section">
+          <div class="hero-text">
+            <p class="hero-eyebrow">CHAMPIONSHIP SPECIFICATION · CURATED BY THE PRO</p>
+            <h1>Three Balls.<br/><span class="gold-gradient">Sixteen Dollars.</span><br/>Zero Compromise.</h1>
+            <p class="hero-desc">
+              Priced at <strong>3 for $16.00</strong> across our three tournament tour models.
+              Converse with our Gemini 3.8 Flash concierge to match your swing, select your sleeves, and our agent will dispatch a private Global Payments Pay-by-Link straight to your inbox.
+            </p>
+            <div class="hero-actions">
+              <button class="btn-gold" id="heroQuickSelectBtn">Quick Select 3 for $16</button>
+              <button class="btn-ghost" id="heroConsultBtn">Consult Concierge</button>
+            </div>
+          </div>
+          <div class="hero-graphic">
+            <div class="sphere-card">
+              <div class="golf-ball-visual">
+                <div class="dimples-layer"></div>
+                <div class="ball-logo">AUGUSTA</div>
+              </div>
+              <div class="sphere-tag">3 FOR $16</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Product Showcase -->
+        <section class="products-section">
+          <div class="section-header">
+            <h2>The Tournament Sleeves</h2>
+            <p>Select your 3-ball sleeve. Each engineered for distinct trajectories and swing speeds.</p>
+          </div>
+
+          <div class="product-cards-grid" id="productGrid">
+            <!-- Dynamic products injected here -->
+          </div>
+
+          <!-- Top-Up Packs -->
+          <div class="topup-shelf">
+            <h3>Custom Top-Ups & Practice Balls</h3>
+            <div class="topup-row" id="topupRow">
+              <!-- Dynamic topups injected here -->
+            </div>
+          </div>
+        </section>
+
+        <!-- The Concierge Advisor -->
+        <section class="concierge-section" id="conciergeSection">
+          <div class="concierge-card">
+            <div class="concierge-header">
+              <div class="concierge-avatar">⛳</div>
+              <div>
+                <h3>The Clubhouse Concierge</h3>
+                <p id="conciergeStatus">Powered by Antigravity · Google Gemini 3.8 Flash</p>
+              </div>
+              <span class="live-pill">LIVE AGENT</span>
+            </div>
+
+            <div class="concierge-chat" id="chatBox">
+              <!-- Message bubbles -->
+            </div>
+
+            <div class="quick-chips" id="quickChips">
+              <button class="chip" data-msg="I have a 100mph swing. Which ball gives me max distance?">Driver speed > 95mph?</button>
+              <button class="chip" data-msg="I want maximum greenside spin and soft feel for short game.">High greenside spin?</button>
+              <button class="chip" data-msg="I'd like 3 Tour Velocity balls for $16.00 please create my link!">Buy 3 for $16.00</button>
+            </div>
+
+            <form class="concierge-input-form" id="chatForm">
+              <input type="text" id="chatInput" placeholder="Ask about compression, swing speed, or request checkout..." autocomplete="off" />
+              <button type="submit" class="btn-send" id="chatSubmitBtn">→</button>
+            </form>
+          </div>
+        </section>
+
+        <!-- Order Receipt Modal/Card -->
+        <section class="receipt-section" id="receiptSection" hidden>
+          <div class="receipt-card">
+            <div class="receipt-header">
+              <span class="receipt-icon">✓</span>
+              <div>
+                <h3>Global Payments Payment Link Ready</h3>
+                <p>Created by the official Global Payments MCP server over stdio.</p>
+              </div>
+            </div>
+
+            <div class="receipt-details">
+              <div class="receipt-row">
+                <span>Amount:</span>
+                <strong id="receiptAmount">$16.00</strong>
+              </div>
+              <div class="receipt-row">
+                <span>Global Payments Link ID:</span>
+                <code id="receiptLinkId">LNK_...</code>
+              </div>
+              <div class="receipt-row">
+                <span>Settlement Status:</span>
+                <span class="status-badge" id="receiptStatus">ACTIVE</span>
+              </div>
+              <div class="receipt-row">
+                <span>Sent To:</span>
+                <strong id="receiptRecipient">conor.a.redmond+deals@gmail.com</strong>
+              </div>
+            </div>
+
+            <div class="receipt-cta-block">
+              <a href="#" id="receiptLinkBtn" target="_blank" class="btn-gold-lg">Open Hosted Checkout Page →</a>
+              <p class="receipt-hint">Single-use secure link on <code>pay.sandbox.realexpayments.com</code>.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- ==================== RIGHT: AGENT & MCP CODE PANE ==================== -->
+    <aside class="console-pane">
+      <header class="console-header">
+        <div class="console-title-group">
+          <span class="status-dot online"></span>
+          <h2>Antigravity Live Agent Studio</h2>
+          <span class="harness-badge">Antigravity · Gemini 3.8 Flash</span>
+        </div>
+
+        <div class="console-actions">
+          <button class="btn-small ghost" id="resetBtn" title="Reset shop and trace">Reset State</button>
+          <button class="btn-small ghost" id="clearConsoleBtn" title="Clear view">Clear View</button>
+        </div>
+      </header>
+
+      <!-- Telemetry Dashboard -->
+      <div class="telemetry-bar">
+        <div class="telemetry-item">
+          <span class="telemetry-label">MCP TOOLS</span>
+          <span class="telemetry-val" id="statTools">3</span>
+        </div>
+        <div class="telemetry-item">
+          <span class="telemetry-label">TOOL CALLS</span>
+          <span class="telemetry-val" id="statCalls">0</span>
+        </div>
+        <div class="telemetry-item">
+          <span class="telemetry-label">HTTP CALLS</span>
+          <span class="telemetry-val" id="statHttp">0</span>
+        </div>
+        <div class="telemetry-item">
+          <span class="telemetry-label">AGENT LATENCY</span>
+          <span class="telemetry-val" id="statLatency">0ms</span>
+        </div>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <div class="console-tabs">
+        <button class="tab-btn active" data-tab="all">All Stream</button>
+        <button class="tab-btn" data-tab="mcp">MCP Frames</button>
+        <button class="tab-btn" data-tab="http">HTTP Wire</button>
+        <button class="tab-btn" data-tab="reasoning">Gemini 3.8 Reasoning</button>
+      </div>
+
+      <!-- Console Body -->
+      <div class="console-stream" id="consoleStream" role="log">
+        <!-- Live event cards -->
+      </div>
+
+      <footer class="console-footer">
+        <span>Transport: <strong>stdio JSON-RPC 2.0</strong></span>
+        <span>Target: <strong>apis.sandbox.globalpay.com</strong></span>
+      </footer>
+    </aside>
+  </div>
+
+  <script src="/app.js" type="module"></script>
+</body>
+</html>
